@@ -17,7 +17,7 @@ class Is_seven
    
     public function set_string_to_check($string_to_check)
     {
-        $this->string_to_check = $string_to_check;
+        $this->string_to_check = sanitize_text_field($string_to_check);
     }
     public function get_string_to_check()
     {
