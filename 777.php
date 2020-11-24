@@ -8,8 +8,8 @@
 
 
 $object_check_string = new Is_seven;
-
-do_action('woocommerce_before_shop_loop_item', array($object_check_string, 'check_form'));
+$object_check_string->set_string_to_check($_POST["user_entered_string"]);
+// do_action('woocommerce_before_shop_loop_item', array($object_check_string, 'check_form'));
 
 class Is_seven
 {
@@ -23,9 +23,15 @@ class Is_seven
     {
         return $this->string_to_check;
     }
-}?>
-
+}
+if (! $object_check_string->get_string_to_check()) {?>
 <form action="" method="post">
   <input type="text" name="user_entered_string" id="" placeholder="Enter text">
-  <input type="submit" value="Submit">
-</form>
+  <input type="submit">
+</form><?php
+
+ } elseif (strlen($object_check_string->get_string_to_check()) === 7) {
+     echo 'String is exactly 7 characters long';
+ } else {
+     echo 'string is <b>NOT</b> exactly 7 characters long';
+ }
