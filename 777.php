@@ -4,7 +4,7 @@
 * Author: Emil
 */
 
-// require 'acf-field-data.php';
+
 
 
 $object_check_string = new Is_seven;
