@@ -4,7 +4,17 @@
 * Author: Emil
 */
 
-
+register_activation_hook(__FILE__, 'check_for_lucky_seven_validator');
+function check_for_lucky_seven_validator()
+{
+    if (is_plugin_active('labb3-plugin-4/lucky-seven-check.php')) {
+        add_action('update_option_active_plugins', 'deactivate_lucky_seven_validator');
+    }
+}
+function deactivate_lucky_seven_validator()
+{
+    deactivate_plugins('labb3-plugin-4/lucky-seven-check.php');
+}
 
 
 $object_check_string = new Is_seven;
