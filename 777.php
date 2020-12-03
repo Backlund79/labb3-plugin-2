@@ -25,7 +25,7 @@ add_action('woocommerce_before_cart', 'print_form');
 
 class Is_seven
 {
-    public $string_to_check = '';
+    public $string_to_check;
    
     public function set_string_to_check($string_to_check)
     {
@@ -36,6 +36,15 @@ class Is_seven
         return $this->string_to_check;
     }
    
+    public function is_seven_characters_long()
+    {
+        if ($this->get_string_to_check()===7) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function check_string()
     {
         if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['action'])) {
