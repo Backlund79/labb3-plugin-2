@@ -38,7 +38,7 @@ class Is_seven
    
     public function is_seven_characters_long()
     {
-        if ($this->get_string_to_check()===7) {
+        if (strlen($this->get_string_to_check()) === 7) {
             return true;
         } else {
             return false;
